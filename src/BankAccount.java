@@ -1,11 +1,27 @@
 public class BankAccount {
-    private int accountNumber = 1234567;
+    private String accountNumber = "1234567";
     private double balance = 0.0;
     private String accountType = "Nomal";
     private String customerName = "John Doe";
+    private String customerEmail = "john.doe@gmail.com";
+    private String customerPhone = "123456789";
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String  accountNumber) {
         this.accountNumber = accountNumber;
+    }
+
+    public void Deposit(double amount) {
+        this.balance += amount;
+        System.out.println("Deposited " + amount + " to " + accountNumber + ". Your account balance is " + balance+ ".");
+    }
+
+    public void Withdraw(double withdrawAmount) {
+        if (this.balance - withdrawAmount <0) {
+            System.out.println("Insufficient funds.");
+        } else {
+            this.balance -= withdrawAmount;
+            System.out.println("balance");
+        }
     }
 
     public void setBalance(double balance) {
@@ -28,10 +44,7 @@ public class BankAccount {
         this.customerPhone = customerPhone;
     }
 
-    private String customerEmail = "john.doe@gmail.com";
-    private String customerPhone = "123456789";
-
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
@@ -54,6 +67,5 @@ public class BankAccount {
     public String getCustomerPhone() {
         return customerPhone;
     }
-
 
 }
